@@ -1,0 +1,62 @@
+package javagroupquest;
+import java.util.*;
+public class pythagoroustriplets {
+	String a="Yes";
+	String b="No";
+	String c="3 elements are not present to check";
+	double aa=0;
+	double bb=0;
+	public String triplets(int arr[])
+	{
+		int flag=0;
+		if(arr.length>=3)
+		{
+		for(int i=0;i<arr.length;i++)
+		{
+			
+			for(int m=i+1;m<arr.length-1;m++)
+			{
+				 aa=Math.pow(arr[m+1],2);
+				 bb=Math.pow(arr[i],2)+Math.pow(arr[m],2);
+				 if(aa==bb)
+				 {
+					 flag++;
+				 }
+			}
+		}
+		 if(flag>0)
+		 {
+			 return a;
+		 }
+		 else
+		 {
+			 return b;
+		 }
+		}
+		else
+		{
+			return c;
+		}
+	}
+
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	pythagoroustriplets ob=new pythagoroustriplets();
+	int t=sc.nextInt();
+	for(int k=0;k<t;k++)
+	{
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		for(int j=0;j<n;j++)
+		{
+			arr[j]=sc.nextInt();
+		}
+		Arrays.sort(arr);
+		String ans=ob.triplets(arr);
+		System.out.println(ans);
+		
+	}
+
+	}
+
+}
